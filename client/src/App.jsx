@@ -1,8 +1,12 @@
 import React from "react";
+import { SocketContextProvider } from "./context/socketContext.jsx";
+import Home from "./views/Home.jsx";
 
 function App() {
     return (
-        <h2>Hello Friends</h2>
+        <SocketContextProvider>
+            <Home/>
+        </SocketContextProvider>
     )
 };
 
