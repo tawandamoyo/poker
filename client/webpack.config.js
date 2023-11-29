@@ -28,6 +28,11 @@ module.exports = {
         open: true,
         liveReload: true,
         historyApiFallback: true,
+    },
+    resolve: {
+        alias: {
+            '@mui/styled-engine': '@mui/styled-engine-sc'
+        }
     }
     
 }
