@@ -3,8 +3,11 @@ import React, {useContext, useEffect, useState} from "react";
 import styled from "styled-components";
 import { socketContext } from "../context/socketContext.jsx";
 
+
+import GameView from './GameView.jsx';
 import Card from '../components/Card.jsx';
 import Avatar from '../components/Avatar.jsx';
+import Login from "../components/Login.jsx";
 
 
 const StyledTable = styled.div`
@@ -37,46 +40,35 @@ function Home() {
         alert("starting game");
     }
 
-   
+    function toggleLoginPage() {
+        // alert("are you sure you want to login")
+        console.log('hellow you')
+    }
+    const isAuthenticated = true;
 
     return (
-        <div className="container">
+        <div>
+
+            {isAuthenticated ? <GameView/> : <h2>HI</h2>}
+
+            {/* <div>
+            <h1>
+                Texas Hold'em
+            </h1>
+            </div>
+
             <div>
-                <p>Server {serverStatus ? <span>online</span> : <span>offline</span>} </p>
-                
-                {playersOnline.length > 1 ? 
-                <div>
-                    There are currently {playersOnline.length} players online
-
-                    <button onClick={startNewGame}>Start game</button>
-                </div>
-                : 
-                <p>You are the only player online, wait a little</p>
-                }
+                "Hi welcome. On this game you can play play against other players. If they are available. It's free to login and we don't use your data for any purposes. You can login with any unique username and password"
             </div>
-
-            
-
-            <StyledTable>
-                { playersOnline.map((player, index)=> {
-                    return (
-                        <StyledPlayerBox>
-                            <StyledCards>
-                                <Card/>
-                                <Card/>
-                            </StyledCards>
-                            <Avatar/>
-                        </StyledPlayerBox>  
-                    )
-                })}
-                           
-            </StyledTable>
-
-            <div className="playerOptions">
-                <button onClick={sendRequest}>Call</button>
-                <button>Fold</button>
+            <div>
+                There are  15 players and 2 active tables online, and 3 players not on any game
             </div>
-        </div>
+                <Login/>
+                <button>Play as Guest</button>
+            </div>
+         */}
+
+         </div>
     )
 };
 

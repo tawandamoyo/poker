@@ -11,6 +11,7 @@ function Card() {
 
     return (
         <StyledCard>card</StyledCard>
+        
     )
 }
 
