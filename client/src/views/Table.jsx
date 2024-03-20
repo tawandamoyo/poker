@@ -3,9 +3,14 @@ import React, {useContext, useEffect, useState} from "react";
 import styled from "styled-components";
 import { socketContext } from "../context/socketContext.jsx";
 
+import Player from "../components/Player.jsx";
+
 import Card from '../components/Card.jsx';
 import Avatar from '../components/Avatar.jsx';
-import Login from "../components/Login.jsx";
+import LoginPage from "../components/LoginPage.jsx";
+
+import './table.css'
+import { Button } from "@mui/base";
 
 
 const StyledTable = styled.div`
@@ -42,55 +47,92 @@ function Home() {
         // alert("are you sure you want to login")
         console.log('hellow you')
     }
-    const logged = true;   
+    const logged = true;
 
     return (
-        <div className="container">
-            <div>
-                <div>
-                    <p>Server {serverStatus ? <span>online</span> : <span>offline</span>} </p>
-                    
-                    {playersOnline.length > 1 ? 
-                    <div>
-                        There are currently {playersOnline.length} players online
-
-                        <button onClick={startNewGame}>Start game</button>
-                    </div>
-                    : 
-                    <p>You are the only player online, wait a little</p>
-                    }
+        <>
+            <div className="table-container">
+                <div className="table-row">
+                    <Player/>
+                    <Player/>
+                    <Player/>
                 </div>
-               
-                <div>
-                    <button onClick={toggleLoginPage}>login</button> 
-                    {logged ? <Login toggle={toggleLoginPage} /> : null }
+                <div className="table-row">
+                    <Player/>
 
+                    <div className="center-cards">
+                        <div className="card">
+                            <div className="card-content">Card</div>
+                        </div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                    </div>
+                    <Player/>
+
+                </div>
+                <div className="table-row">
+                    <Player/>
+                    <Player/>
+                    <Player/>
+                </div>
+                <div className="controls">
+                    <Button>Call</Button>
+                    <Button>Fold</Button>
                 </div>
             </div>
+
+        </>
+    )
+
+    // return (
+    //     <div className="container">
+    //         <div>
+    //             <div>
+    //                 <p>Server {serverStatus ? <span>online</span> : <span>offline</span>} </p>
+                    
+    //                 {playersOnline.length > 1 ? 
+    //                 <div>
+    //                     There are currently {playersOnline.length} players online
+
+    //                     <button onClick={startNewGame}>Start game</button>
+    //                 </div>
+    //                 : 
+    //                 <p>You are the only player online, wait a little</p>
+    //                 }
+    //             </div>
+               
+    //             <div>
+    //                 <button onClick={toggleLoginPage}>login</button> 
+    //                 {logged ? <Login toggle={toggleLoginPage} /> : null }
+
+    //             </div>
+    //         </div>
 
             
 
-            <StyledTable>
-                { playersOnline.map((player, index)=> {
-                    return (
-                        <StyledPlayerBox>
-                            <StyledCards>
-                                <Card/>
-                                <Card/>
-                            </StyledCards>
-                            <Avatar/>
-                        </StyledPlayerBox>  
-                    )
-                })}
+    //         <StyledTable>
+    //             { playersOnline.map((player, index)=> {
+    //                 return (
+    //                     <StyledPlayerBox>
+    //                         <StyledCards>
+    //                             <Card/>
+    //                             <Card/>
+    //                         </StyledCards>
+    //                         <Avatar/>
+    //                     </StyledPlayerBox>  
+    //                 )
+    //             })}
                            
-            </StyledTable>
+    //         </StyledTable>
 
-            <div className="playerOptions">
-                <button onClick={sendRequest}>Call</button>
-                <button>Fold</button>
-            </div>
-        </div>
-    )
+    //         <div className="playerOptions">
+    //             <button onClick={sendRequest}>Call</button>
+    //             <button>Fold</button>
+    //         </div>
+    //     </div>
+    // )
 };
 
 export default Home;

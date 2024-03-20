@@ -5,9 +5,9 @@ import { socketContext } from "../context/socketContext.jsx";
 
 
 import GameView from './GameView.jsx';
+import LoginPage from "../components/LoginPage.jsx";
 import Card from '../components/Card.jsx';
 import Avatar from '../components/Avatar.jsx';
-import Login from "../components/Login.jsx";
 
 
 const StyledTable = styled.div`
@@ -44,31 +44,22 @@ function Home() {
         // alert("are you sure you want to login")
         console.log('hellow you')
     }
-    const isAuthenticated = true;
+    const isAuthenticated = false;
 
     return (
         <div>
 
-            {isAuthenticated ? <GameView/> : <h2>HI</h2>}
+            {isAuthenticated ? <GameView/> : <LoginPage/>}
 
-            {/* <div>
+            <div>
             <h1>
                 Texas Hold'em
             </h1>
             </div>
-
-            <div>
-                "Hi welcome. On this game you can play play against other players. If they are available. It's free to login and we don't use your data for any purposes. You can login with any unique username and password"
-            </div>
             <div>
                 There are  15 players and 2 active tables online, and 3 players not on any game
             </div>
-                <Login/>
-                <button>Play as Guest</button>
-            </div>
-         */}
-
-         </div>
+        </div>
     )
 };
 

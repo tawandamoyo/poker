@@ -35,7 +35,9 @@ export default function Login() {
       password: password
     } )
     .then((response) => {
-      console.log(response)
+      console.log(response);
+      //redirect to home tables page
+      // set is Logged on to true
     })
     .catch((error) => {
       console.error(error)
@@ -43,8 +45,11 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Login</Button>
+    <div className="container">
+      <div className="welcome-message">
+          "Hi welcome. On this game you can play play against other players. If they are available. It's free to login and we don't use your data for any purposes. You can login with any unique username and password"
+      </div>
+      <Button onClick={handleOpen} className="login-button">Login</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -67,7 +72,6 @@ export default function Login() {
                 </label>
                 <button type="submit">Login</button>
             </form>
-            <button>Close</button>
           </Typography>
         </Box>
       </Modal>
