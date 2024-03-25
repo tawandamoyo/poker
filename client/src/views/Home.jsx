@@ -5,9 +5,12 @@ import { socketContext } from "../context/socketContext.jsx";
 
 
 import GameView from './GameView.jsx';
+import LoginForm from "../components/LoginForm.jsx";
 import LoginPage from "../components/LoginPage.jsx";
 import Card from '../components/Card.jsx';
 import Avatar from '../components/Avatar.jsx';
+import Signup from "../components/Signup.jsx";
+import { AuthenticationContext } from "../context/authenticationContext.jsx";
 
 
 const StyledTable = styled.div`
@@ -15,7 +18,7 @@ const StyledTable = styled.div`
     height: 300px;
     background-color: green;
     border-radius: 50px;
-    position: relative;
+    position: relative;<App />
 `;
 
 const StyledPlayerBox = styled.div`
@@ -34,22 +37,18 @@ const sendRequest = ()=> {
 
 
 function Home() {
-    const {serverStatus, playersOnline} = useContext(socketContext)
+    const authenticationStatus = useContext(AuthenticationContext);
+    //const {serverStatus, playersOnline} = useContext(socketContext)
 
-    function startNewGame() {
-        alert("starting game");
-    }
+    // function startNewGame() {
+    //     alert("starting game");
+    // }
 
-    function toggleLoginPage() {
-        // alert("are you sure you want to login")
-        console.log('hellow you')
-    }
-    const isAuthenticated = false;
 
     return (
         <div>
 
-            {isAuthenticated ? <GameView/> : <LoginPage/>}
+            {authenticationStatus === null ? <Signup/> : <GameView/>}
 
             <div>
             <h1>
