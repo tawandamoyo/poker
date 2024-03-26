@@ -6,7 +6,16 @@ const { createServer } = require('http');
 const { default: axios } = require('axios');
 
 
+//Routes
+const playersRouter = require('./routes/players')
+
 const app = express();
+
+app.use(express.json());
+app.use(cors());
+app.use(playersRouter);
+
+
 const server = createServer(app);
 const io = require("socket.io")(server, {
     cors: {
