@@ -18,21 +18,22 @@ export function AuthenticationContextProvider({ children }) {
     const onLogout = () => {
         setAuthenticationStatus(null)
     }
+    
 
     useEffect(() => {
         setAuthenticationStatus(Cookies.get('access.vbqw9xjb'))
     }, []);
 
-    // const value = useMemo(() => {
-    //     return {
-    //         authenticationStatus,
-    //         onLogin,
-    //         onLogout
-    //     }
-    // }, [authenticationStatus]);
+    const value = useMemo(() => {
+        return {
+            authenticationStatus,
+            onLogin,
+            onLogout
+        }
+    }, [authenticationStatus]);
 
     return (
-        <AuthenticationContext.Provider>
+        <AuthenticationContext.Provider value={value}>
             {children}
         </AuthenticationContext.Provider>
     )

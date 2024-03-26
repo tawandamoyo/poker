@@ -47,18 +47,26 @@ function Home() {
         // alert("are you sure you want to login")
         console.log('hellow you')
     }
-    const logged = true;
+
+    const players = [
+        { name: "Tawanda", balance: 50 },
+        { name: "Nyanga", balance: 50 },
+        { name: "Rukweza", balance: 50 },
+        { name: "Jojo", balance: 50 },
+        { name: "Jon", balance: 50 },
+        { name: "Pete", balance: 50 },
+    ]
 
     return (
         <>
             <div className="table-container">
-                <div className="table-row">
-                    <Player/>
-                    <Player/>
-                    <Player/>
-                </div>
-                <div className="table-row">
-                    <Player/>
+                {players.slice(0, 3).map((player, index) => (
+                    <Player key={index} name={player.name} balance={player.balance} />
+                ))}
+                <div className="center-row">
+                    { players.slice(3, 5).map((player, index) => (
+                        <Player key={index} name={player.name} balance={player.balance} />
+                    ))}
 
                     <div className="center-cards">
                         <div className="card">
@@ -69,14 +77,11 @@ function Home() {
                         <div className="card"></div>
                         <div className="card"></div>
                     </div>
-                    <Player/>
 
                 </div>
-                <div className="table-row">
-                    <Player/>
-                    <Player/>
-                    <Player/>
-                </div>
+                {players.slice(5, 8).map((player, index) => (
+                    <Player key={index} name={player.name} balance={player.balance} />
+                ))}
                 <div className="controls">
                     <Button>Call</Button>
                     <Button>Fold</Button>

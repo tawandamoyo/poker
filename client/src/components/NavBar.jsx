@@ -16,7 +16,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import { AuthenticationContext } from '../context/authenticationContext.jsx';
 
-const {authenticationStatus, onLogout} = useContext(AuthenticationContext);
+import avatarImage from '../resources/img/man.png'
+
+// const {authenticationStatus, onLogout} = useContext(AuthenticationContext);
 
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -134,7 +136,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={avatarImage} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -154,7 +156,7 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={onLogout()}>
+                <MenuItem key={setting} onClick={null}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -5,6 +5,9 @@
     border: 25px rgb(194, 68, 68) solid;
     border-radius:35%;
     background-color: green;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 .table-row {
     display: flex;

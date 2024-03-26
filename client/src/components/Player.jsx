@@ -1,11 +1,12 @@
 import React from "react";
+import ProfileAvatar from "./Avatar.jsx";
 
-function Player() {
+function Player({ name, balance }) {
     return (
         <div className="playerModulo">
-            <div className="avatar"></div>
-            <div className="nameField">Tawanda</div>
-            <div className="amountField">10000</div>
+            <ProfileAvatar/>
+            <h3 className="nameField">{name}</h3>
+            <h3 className="amountField">${balance}</h3>
         </div>
     )
 }

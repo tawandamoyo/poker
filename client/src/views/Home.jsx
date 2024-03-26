@@ -37,6 +37,7 @@ const sendRequest = ()=> {
 
 
 function Home() {
+
     const authenticationStatus = useContext(AuthenticationContext);
     //const {serverStatus, playersOnline} = useContext(socketContext)
 
